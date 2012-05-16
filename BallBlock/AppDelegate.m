@@ -10,8 +10,9 @@
 
 #import "AppDelegate.h"
 #import "GameConfig.h"
-#import "HelloWorldLayer.h"
+#import "ActionLayer.h"
 #import "RootViewController.h"
+#import "chipmunk.h"
 
 @implementation AppDelegate
 
@@ -89,7 +90,7 @@
 #endif
 	
 	[director setAnimationInterval:1.0/60];
-	[director setDisplayFPS:YES];
+	//[director setDisplayFPS:YES];
 	
 	
 	// make the OpenGLView a child of the view controller
@@ -109,8 +110,10 @@
 	// Removes the startup flicker
 	[self removeStartupFlicker];
 	
+    cpInitChipmunk();
 	// Run the intro Scene
-	[[CCDirector sharedDirector] runWithScene: [HelloWorldLayer scene]];
+	[[CCDirector sharedDirector] runWithScene: [ActionLayer scene]];
+    
 }
 
 
