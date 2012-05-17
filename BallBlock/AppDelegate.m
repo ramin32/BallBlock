@@ -11,6 +11,7 @@
 #import "AppDelegate.h"
 #import "GameConfig.h"
 #import "ActionLayer.h"
+#import "MenuLayer.h"
 #import "RootViewController.h"
 #import "chipmunk.h"
 
@@ -112,7 +113,7 @@
 	
     cpInitChipmunk();
 	// Run the intro Scene
-	[[CCDirector sharedDirector] runWithScene: [ActionLayer scene]];
+	[[CCDirector sharedDirector] runWithScene: [MenuLayer scene]];
     
 }
 

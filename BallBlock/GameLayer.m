@@ -1,23 +1,23 @@
-#import "ActionLayer.h"
+#import "GameLayer.h"
 #import "drawSpace.h"
 
 
-@implementation ActionLayer
+@implementation GameLayer
 
 
 + (id)scene {
     CCScene *scene = [CCScene node];
-    ActionLayer *layer = [ActionLayer node];
+    GameLayer *layer = [GameLayer node];
     [scene addChild:layer];
     return scene;
 }
 
 
 - (void) initSpace {
-    space = cpSpaceNew();
-  //  space->gravity = ccp(0, -750);
-    cpSpaceResizeStaticHash(space, 400, 200);
-    cpSpaceResizeActiveHash(space, 200, 200);
+    _space = cpSpaceNew();
+    _space->gravity = cpv(0, 0);
+    cpSpaceResizeStaticHash(_space, 400, 200);
+    cpSpaceResizeActiveHash(_space, 200, 200);
 }
 
 - (void) createWallFrom:(CGPoint)from to:(CGPoint)to
@@ -26,9 +26,9 @@
     
     float radius = 10.0;
     cpShape *wallShape = cpSegmentShapeNew(wallBody, from, to, radius);    
-    wallShape->e = 0.5;
-    wallShape->u = 1;
-    cpSpaceAddShape(space, wallShape);
+    wallShape->e = .7;
+    wallShape->u = 0;
+    cpSpaceAddShape(_space, wallShape);
 }
 
 - (void)initFrame {    
@@ -55,37 +55,30 @@
         2.0 // lineThickness
     };
     
-    drawSpace(space, &options);
+    drawSpace(_space, &options);
     
 }
 
-- (void)initBall
-{
-    ballBody = cpBodyNew(100, INFINITY);      
-    ballBody->p = cpv(160,250);
-    ballBody->f = cpv(159,250);
-    
-    cpSpaceAddBody(space, ballBody);  
-        
-    float r = 10;
-    cpShape *ballShape = cpCircleShapeNew(ballBody, r, cpvzero);  
-    ballShape->e = 1;      
-    ballShape->u = 1; 
-    ballShape->collision_type = 1;     
-    cpSpaceAddShape(space, ballShape);  
-}
 
 - (void) update: (ccTime) dt
 {
-    cpSpaceStep(space, dt);
+    cpSpaceStep(_space, dt);
+    [_ball update];
 }
 
 
 - (id)init {
     if ((self = [super init])) {                
+        CGSize winSize = [CCDirector sharedDirector].winSize;
         [self initSpace];
         [self initFrame];
-        [self initBall];
+        
+        
+        
+        for(int i = 0; i< 10; i++){
+        _ball = [[Ball alloc] initWithBounds: winSize];
+            [_ball addToSpace: _space];}
+        
         [self scheduleUpdate];
     }
     return self;
@@ -93,7 +86,7 @@
 
 
 - (void)dealloc {
-    cpSpaceFree(space);
+    cpSpaceFree(_space);
     [super dealloc];
 }
 

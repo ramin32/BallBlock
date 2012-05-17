@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F519CE8F156559E50076E1F6 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = F519CE8E156559E50076E1F6 /* background.png */; };
+		F5634435156522950026E397 /* Ball.m in Sources */ = {isa = PBXBuildFile; fileRef = F5634434156522950026E397 /* Ball.m */; };
+		F563443E1565333E0026E397 /* MenuLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F563443D1565333D0026E397 /* MenuLayer.m */; };
 		F571000615640A6200B8CF76 /* cpMouse.c in Sources */ = {isa = PBXBuildFile; fileRef = F571000215640A6200B8CF76 /* cpMouse.c */; };
 		F571000715640A6200B8CF76 /* drawSpace.c in Sources */ = {isa = PBXBuildFile; fileRef = F571000415640A6200B8CF76 /* drawSpace.c */; };
 		F576B60B1563CDA2005C50F2 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F576B60A1563CDA2005C50F2 /* QuartzCore.framework */; };
@@ -150,10 +153,15 @@
 		F576B7CA1563CDA5005C50F2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F576B7C91563CDA5005C50F2 /* AppDelegate.m */; };
 		F576B7CD1563CDA5005C50F2 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F576B7CC1563CDA5005C50F2 /* RootViewController.m */; };
 		F576B7D31563CDA5005C50F2 /* grossini_dance_atlas.png in Resources */ = {isa = PBXBuildFile; fileRef = F576B7D21563CDA5005C50F2 /* grossini_dance_atlas.png */; };
-		F576B7DB1563CDC8005C50F2 /* ActionLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F576B7DA1563CDC8005C50F2 /* ActionLayer.m */; };
+		F576B7DB1563CDC8005C50F2 /* GameLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F576B7DA1563CDC8005C50F2 /* GameLayer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F519CE8E156559E50076E1F6 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = background.png; path = BallBlock/background.png; sourceTree = "<group>"; };
+		F5634433156522950026E397 /* Ball.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ball.h; sourceTree = "<group>"; };
+		F5634434156522950026E397 /* Ball.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Ball.m; sourceTree = "<group>"; };
+		F563443C1565333D0026E397 /* MenuLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuLayer.h; sourceTree = "<group>"; };
+		F563443D1565333D0026E397 /* MenuLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuLayer.m; sourceTree = "<group>"; };
 		F571000215640A6200B8CF76 /* cpMouse.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.objc; fileEncoding = 4; path = cpMouse.c; sourceTree = "<group>"; };
 		F571000315640A6200B8CF76 /* cpMouse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cpMouse.h; sourceTree = "<group>"; };
 		F571000415640A6200B8CF76 /* drawSpace.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.objc; fileEncoding = 4; path = drawSpace.c; sourceTree = "<group>"; };
@@ -452,8 +460,8 @@
 		F576B7CC1563CDA5005C50F2 /* RootViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 		F576B7D11563CDA5005C50F2 /* GameConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameConfig.h; sourceTree = "<group>"; };
 		F576B7D21563CDA5005C50F2 /* grossini_dance_atlas.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = grossini_dance_atlas.png; path = Resources/grossini_dance_atlas.png; sourceTree = "<group>"; };
-		F576B7D91563CDC8005C50F2 /* ActionLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionLayer.h; sourceTree = "<group>"; };
-		F576B7DA1563CDC8005C50F2 /* ActionLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionLayer.m; sourceTree = "<group>"; };
+		F576B7D91563CDC8005C50F2 /* GameLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; path = GameLayer.h; sourceTree = "<group>"; };
+		F576B7DA1563CDC8005C50F2 /* GameLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameLayer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -489,6 +497,7 @@
 		F576B5FB1563CDA2005C50F2 = {
 			isa = PBXGroup;
 			children = (
+				F519CE8E156559E50076E1F6 /* background.png */,
 				F576B61A1563CDA2005C50F2 /* BallBlock */,
 				F576B6091563CDA2005C50F2 /* Frameworks */,
 				F576B6071563CDA2005C50F2 /* Products */,
@@ -521,9 +530,13 @@
 		F576B61A1563CDA2005C50F2 /* BallBlock */ = {
 			isa = PBXGroup;
 			children = (
+				F563443C1565333D0026E397 /* MenuLayer.h */,
+				F563443D1565333D0026E397 /* MenuLayer.m */,
+				F5634433156522950026E397 /* Ball.h */,
+				F5634434156522950026E397 /* Ball.m */,
 				F571000115640A6200B8CF76 /* Helper Code */,
-				F576B7D91563CDC8005C50F2 /* ActionLayer.h */,
-				F576B7DA1563CDC8005C50F2 /* ActionLayer.m */,
+				F576B7D91563CDC8005C50F2 /* GameLayer.h */,
+				F576B7DA1563CDC8005C50F2 /* GameLayer.m */,
 				F576B7C81563CDA5005C50F2 /* AppDelegate.h */,
 				F576B7C91563CDA5005C50F2 /* AppDelegate.m */,
 				F576B7CB1563CDA5005C50F2 /* RootViewController.h */,
@@ -1033,6 +1046,7 @@
 				F576B62B1563CDA2005C50F2 /* Icon@2x.png in Resources */,
 				F576B62E1563CDA2005C50F2 /* iTunesArtwork in Resources */,
 				F576B7D31563CDA5005C50F2 /* grossini_dance_atlas.png in Resources */,
+				F519CE8F156559E50076E1F6 /* background.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1166,9 +1180,11 @@
 				F576B7C71563CDA5005C50F2 /* main.m in Sources */,
 				F576B7CA1563CDA5005C50F2 /* AppDelegate.m in Sources */,
 				F576B7CD1563CDA5005C50F2 /* RootViewController.m in Sources */,
-				F576B7DB1563CDC8005C50F2 /* ActionLayer.m in Sources */,
+				F576B7DB1563CDC8005C50F2 /* GameLayer.m in Sources */,
 				F571000615640A6200B8CF76 /* cpMouse.c in Sources */,
 				F571000715640A6200B8CF76 /* drawSpace.c in Sources */,
+				F5634435156522950026E397 /* Ball.m in Sources */,
+				F563443E1565333E0026E397 /* MenuLayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
