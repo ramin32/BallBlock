@@ -52,7 +52,7 @@
     if ((self = [super init])) {                
         _walls = [[NSMutableArray alloc] init];
         _balls = [[NSMutableArray alloc] init];
-        _ballCount = 2;
+        _ballCount = 10;
         
         CCDirector *director = [CCDirector sharedDirector];
         
@@ -77,7 +77,7 @@
                                                                 [director replaceScene:
                                                                  [CCTransitionFade transitionWithDuration:0.5f scene:[MenuLayer scene]]];
                                                             }];
-        pauseMenuItem.position = ccp(director.winSize.width - 20, director.winSize.height - 25);
+        pauseMenuItem.position = ccp(director.winSize.width - 20, director.winSize.height - 25 );
         CCMenu *menu = [CCMenu menuWithItems:pauseMenuItem, nil];
         menu.position = CGPointZero;
         [self addChild:menu];
