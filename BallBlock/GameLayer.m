@@ -2,6 +2,7 @@
 #import "drawSpace.h"
 #import <UIKit/UIKit.h>
 #import "Wall.h"
+#import "MenuLayer.h"
 
 
 @implementation GameLayer
@@ -53,6 +54,8 @@
         _balls = [[NSMutableArray alloc] init];
         _ballCount = 2;
         
+        CCDirector *director = [CCDirector sharedDirector];
+        
         [self initSpace];
         [_walls addObjectsFromArray:[Wall initFrameForSpace:_space]];
         
@@ -65,6 +68,19 @@
         self.isTouchEnabled = YES;
         
         for(int i = 0 ;i < 100; i++) [[NSString alloc] init];
+        
+        // Standard method to create a button
+        CCMenuItem *pauseMenuItem = [CCMenuItemFont 
+                                                            itemFromString:@"||" 
+                                                            block:^(id sender) 
+                                                            {
+                                                                [director replaceScene:
+                                                                 [CCTransitionFade transitionWithDuration:0.5f scene:[MenuLayer scene]]];
+                                                            }];
+        pauseMenuItem.position = ccp(director.winSize.width - 20, director.winSize.height - 25);
+        CCMenu *menu = [CCMenu menuWithItems:pauseMenuItem, nil];
+        menu.position = CGPointZero;
+        [self addChild:menu];
         
               
     }
