@@ -52,7 +52,7 @@
     if ((self = [super init])) {                
         _walls = [[NSMutableArray alloc] init];
         _balls = [[NSMutableArray alloc] init];
-        _ballCount = 10;
+        _ballCount = 20;
         
         CCDirector *director = [CCDirector sharedDirector];
         
@@ -75,7 +75,7 @@
                                                             block:^(id sender) 
                                                             {
                                                                 [director replaceScene:
-                                                                 [CCTransitionFade transitionWithDuration:0.5f scene:[MenuLayer scene]]];
+                                                                 [CCTransitionMoveInL transitionWithDuration:0.5f scene:[MenuLayer scene]]];
                                                             }];
         pauseMenuItem.position = ccp(director.winSize.width - 20, director.winSize.height - 25 );
         CCMenu *menu = [CCMenu menuWithItems:pauseMenuItem, nil];
@@ -95,6 +95,28 @@
     
     //Swipe Detection Part 1
     _firstTouch = location;
+}
+
+- (void) ccTouchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    NSSet *allTouches = [event allTouches];
+    UITouch * touch = [[allTouches allObjects] objectAtIndex:0];
+    CGPoint location = [touch locationInView: [touch view]];
+    location = [[CCDirector sharedDirector] convertToGL:location];
+    
+    //Swipe Detection Part 2
+    _lastTouch = location;
+    
+    //Minimum length of the swipe
+    float swipeLength = ccpDistance(_firstTouch, _lastTouch);
+    
+    //Check if the swipe is a left swipe and long enough
+    // if (_firstTouch.x > _lastTouch.x && swipeLength > 60) {
+    //if(    swipeLength > 60) 
+    [_walls addObject: [Wall initAndAddToSpace:_space from:_firstTouch to:_lastTouch]];
+    //}
+    _firstTouch = _lastTouch;
+
 }
 
 - (void) ccTouchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {

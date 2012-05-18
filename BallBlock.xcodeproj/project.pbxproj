@@ -10,6 +10,7 @@
 		F519CE8F156559E50076E1F6 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = F519CE8E156559E50076E1F6 /* background.png */; };
 		F5634435156522950026E397 /* Ball.m in Sources */ = {isa = PBXBuildFile; fileRef = F5634434156522950026E397 /* Ball.m */; };
 		F563443E1565333E0026E397 /* MenuLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F563443D1565333D0026E397 /* MenuLayer.m */; };
+		F563B60F1566F8D10067FB1C /* MathUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = F563B60E1566F8D10067FB1C /* MathUtil.m */; };
 		F571000715640A6200B8CF76 /* drawSpace.c in Sources */ = {isa = PBXBuildFile; fileRef = F571000415640A6200B8CF76 /* drawSpace.c */; };
 		F576B60B1563CDA2005C50F2 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F576B60A1563CDA2005C50F2 /* QuartzCore.framework */; };
 		F576B60D1563CDA2005C50F2 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F576B60C1563CDA2005C50F2 /* OpenGLES.framework */; };
@@ -162,6 +163,8 @@
 		F5634434156522950026E397 /* Ball.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Ball.m; sourceTree = "<group>"; };
 		F563443C1565333D0026E397 /* MenuLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuLayer.h; sourceTree = "<group>"; };
 		F563443D1565333D0026E397 /* MenuLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuLayer.m; sourceTree = "<group>"; };
+		F563B60E1566F8D10067FB1C /* MathUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MathUtil.m; sourceTree = "<group>"; };
+		F563B6111566F8F30067FB1C /* MathUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MathUtil.h; sourceTree = "<group>"; };
 		F571000415640A6200B8CF76 /* drawSpace.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.objc; fileEncoding = 4; path = drawSpace.c; sourceTree = "<group>"; };
 		F571000515640A6200B8CF76 /* drawSpace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = drawSpace.h; sourceTree = "<group>"; };
 		F576B6061563CDA2005C50F2 /* BallBlock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BallBlock.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -483,6 +486,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F563B6121566F9800067FB1C /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				F563B6111566F8F30067FB1C /* MathUtil.h */,
+				F563B60E1566F8D10067FB1C /* MathUtil.m */,
+			);
+			name = Util;
+			sourceTree = "<group>";
+		};
 		F571000115640A6200B8CF76 /* Helper Code */ = {
 			isa = PBXGroup;
 			children = (
@@ -527,6 +539,7 @@
 		F576B61A1563CDA2005C50F2 /* BallBlock */ = {
 			isa = PBXGroup;
 			children = (
+				F563B6121566F9800067FB1C /* Util */,
 				F58E9C49156674D100DBA335 /* GameObjects */,
 				F58E9C481566748000DBA335 /* Layers */,
 				F571000115640A6200B8CF76 /* Helper Code */,
@@ -1201,6 +1214,7 @@
 				F5634435156522950026E397 /* Ball.m in Sources */,
 				F563443E1565333E0026E397 /* MenuLayer.m in Sources */,
 				F58E9C4C1566750E00DBA335 /* Wall.m in Sources */,
+				F563B60F1566F8D10067FB1C /* MathUtil.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
