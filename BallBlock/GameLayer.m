@@ -1,5 +1,7 @@
 #import "GameLayer.h"
 #import "drawSpace.h"
+#import <UIKit/UIKit.h>
+#import "Wall.h"
 
 
 @implementation GameLayer
@@ -20,32 +22,11 @@
     cpSpaceResizeActiveHash(_space, 200, 200);
 }
 
-- (void) createWallFrom:(CGPoint)from to:(CGPoint)to
+
+
+
+- (void)draw 
 {
-    cpBody *wallBody = cpBodyNewStatic();
-    
-    float radius = 10.0;
-    cpShape *wallShape = cpSegmentShapeNew(wallBody, from, to, radius);    
-    wallShape->e = .7;
-    wallShape->u = 0;
-    cpSpaceAddShape(_space, wallShape);
-}
-
-- (void)initFrame {    
-    CGSize winSize = [CCDirector sharedDirector].winSize; 
-    CGPoint lowerLeft = ccp(0, 0);
-    CGPoint lowerRight = ccp(winSize.width, 0);
-    CGPoint upperLeft = ccp(0, winSize.height);
-    CGPoint upperRight = ccp(winSize.width, winSize.height);
-    
-    [self createWallFrom:lowerLeft to:lowerRight];
-    [self createWallFrom:lowerLeft to:upperLeft];
-    [self createWallFrom:lowerRight to:upperRight];
-    [self createWallFrom:upperLeft to:upperRight];
-}
-
-- (void)draw {
-    
     drawSpaceOptions options = {
         0, // drawHash
         0, // drawBBs,
@@ -63,30 +44,67 @@
 - (void) update: (ccTime) dt
 {
     cpSpaceStep(_space, dt);
-    [_ball update];
 }
 
 
 - (id)init {
     if ((self = [super init])) {                
-        CGSize winSize = [CCDirector sharedDirector].winSize;
+        _walls = [[NSMutableArray alloc] init];
+        _balls = [[NSMutableArray alloc] init];
+        _ballCount = 2;
+        
         [self initSpace];
-        [self initFrame];
+        [_walls addObjectsFromArray:[Wall initFrameForSpace:_space]];
         
-        
-        
-        for(int i = 0; i< 10; i++){
-        _ball = [[Ball alloc] initWithBounds: winSize];
-            [_ball addToSpace: _space];}
+        for(int i = 0; i< _ballCount; i++)
+        {
+            [_balls addObject:[Ball initAndAddToSpace:_space]];
+        }
         
         [self scheduleUpdate];
+        self.isTouchEnabled = YES;
+        
+        for(int i = 0 ;i < 100; i++) [[NSString alloc] init];
+        
+              
     }
     return self;
 }  
 
+- (void)ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    NSSet *allTouches = [event allTouches];
+    UITouch * touch = [[allTouches allObjects] objectAtIndex:0];
+    CGPoint location = [touch locationInView: [touch view]];
+    location = [[CCDirector sharedDirector] convertToGL:location];
+    
+    //Swipe Detection Part 1
+    _firstTouch = location;
+}
+
+- (void) ccTouchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
+    NSSet *allTouches = [event allTouches];
+    UITouch * touch = [[allTouches allObjects] objectAtIndex:0];
+    CGPoint location = [touch locationInView: [touch view]];
+    location = [[CCDirector sharedDirector] convertToGL:location];
+    
+    //Swipe Detection Part 2
+    _lastTouch = location;
+    
+    //Minimum length of the swipe
+    float swipeLength = ccpDistance(_firstTouch, _lastTouch);
+    
+    //Check if the swipe is a left swipe and long enough
+   // if (_firstTouch.x > _lastTouch.x && swipeLength > 60) {
+//if(    swipeLength > 60) 
+    [_walls addObject: [Wall initAndAddToSpace:_space from:_firstTouch to:_lastTouch]];
+    //}
+}
+
 
 - (void)dealloc {
     cpSpaceFree(_space);
+    [_balls release];
+    [_walls release];
     [super dealloc];
 }
 

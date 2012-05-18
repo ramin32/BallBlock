@@ -10,7 +10,6 @@
 
 #import "AppDelegate.h"
 #import "GameConfig.h"
-#import "ActionLayer.h"
 #import "MenuLayer.h"
 #import "RootViewController.h"
 #import "chipmunk.h"
@@ -91,7 +90,7 @@
 #endif
 	
 	[director setAnimationInterval:1.0/60];
-	//[director setDisplayFPS:YES];
+	[director setDisplayFPS:YES];
 	
 	
 	// make the OpenGLView a child of the view controller

@@ -4,7 +4,11 @@
 
 @interface GameLayer : CCLayer {
     cpSpace *_space;
-    Ball *_ball;
+    NSMutableArray *_walls;
+    NSMutableArray *_balls;
+    int _ballCount;
+    CGPoint _firstTouch;
+    CGPoint _lastTouch;
 }
 
 + (id)scene;

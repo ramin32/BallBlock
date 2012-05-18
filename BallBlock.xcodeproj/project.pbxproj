@@ -10,7 +10,6 @@
 		F519CE8F156559E50076E1F6 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = F519CE8E156559E50076E1F6 /* background.png */; };
 		F5634435156522950026E397 /* Ball.m in Sources */ = {isa = PBXBuildFile; fileRef = F5634434156522950026E397 /* Ball.m */; };
 		F563443E1565333E0026E397 /* MenuLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F563443D1565333D0026E397 /* MenuLayer.m */; };
-		F571000615640A6200B8CF76 /* cpMouse.c in Sources */ = {isa = PBXBuildFile; fileRef = F571000215640A6200B8CF76 /* cpMouse.c */; };
 		F571000715640A6200B8CF76 /* drawSpace.c in Sources */ = {isa = PBXBuildFile; fileRef = F571000415640A6200B8CF76 /* drawSpace.c */; };
 		F576B60B1563CDA2005C50F2 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F576B60A1563CDA2005C50F2 /* QuartzCore.framework */; };
 		F576B60D1563CDA2005C50F2 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F576B60C1563CDA2005C50F2 /* OpenGLES.framework */; };
@@ -154,16 +153,15 @@
 		F576B7CD1563CDA5005C50F2 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F576B7CC1563CDA5005C50F2 /* RootViewController.m */; };
 		F576B7D31563CDA5005C50F2 /* grossini_dance_atlas.png in Resources */ = {isa = PBXBuildFile; fileRef = F576B7D21563CDA5005C50F2 /* grossini_dance_atlas.png */; };
 		F576B7DB1563CDC8005C50F2 /* GameLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F576B7DA1563CDC8005C50F2 /* GameLayer.m */; };
+		F58E9C4C1566750E00DBA335 /* Wall.m in Sources */ = {isa = PBXBuildFile; fileRef = F58E9C4B1566750E00DBA335 /* Wall.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		F519CE8E156559E50076E1F6 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = background.png; path = BallBlock/background.png; sourceTree = "<group>"; };
+		F519CE8E156559E50076E1F6 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
 		F5634433156522950026E397 /* Ball.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ball.h; sourceTree = "<group>"; };
 		F5634434156522950026E397 /* Ball.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Ball.m; sourceTree = "<group>"; };
 		F563443C1565333D0026E397 /* MenuLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuLayer.h; sourceTree = "<group>"; };
 		F563443D1565333D0026E397 /* MenuLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuLayer.m; sourceTree = "<group>"; };
-		F571000215640A6200B8CF76 /* cpMouse.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.objc; fileEncoding = 4; path = cpMouse.c; sourceTree = "<group>"; };
-		F571000315640A6200B8CF76 /* cpMouse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cpMouse.h; sourceTree = "<group>"; };
 		F571000415640A6200B8CF76 /* drawSpace.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.objc; fileEncoding = 4; path = drawSpace.c; sourceTree = "<group>"; };
 		F571000515640A6200B8CF76 /* drawSpace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = drawSpace.h; sourceTree = "<group>"; };
 		F576B6061563CDA2005C50F2 /* BallBlock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BallBlock.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -460,8 +458,10 @@
 		F576B7CC1563CDA5005C50F2 /* RootViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 		F576B7D11563CDA5005C50F2 /* GameConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameConfig.h; sourceTree = "<group>"; };
 		F576B7D21563CDA5005C50F2 /* grossini_dance_atlas.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = grossini_dance_atlas.png; path = Resources/grossini_dance_atlas.png; sourceTree = "<group>"; };
-		F576B7D91563CDC8005C50F2 /* GameLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; path = GameLayer.h; sourceTree = "<group>"; };
+		F576B7D91563CDC8005C50F2 /* GameLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameLayer.h; sourceTree = "<group>"; };
 		F576B7DA1563CDC8005C50F2 /* GameLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameLayer.m; sourceTree = "<group>"; };
+		F58E9C4A1566750E00DBA335 /* Wall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Wall.h; sourceTree = "<group>"; };
+		F58E9C4B1566750E00DBA335 /* Wall.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Wall.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -486,8 +486,6 @@
 		F571000115640A6200B8CF76 /* Helper Code */ = {
 			isa = PBXGroup;
 			children = (
-				F571000215640A6200B8CF76 /* cpMouse.c */,
-				F571000315640A6200B8CF76 /* cpMouse.h */,
 				F571000415640A6200B8CF76 /* drawSpace.c */,
 				F571000515640A6200B8CF76 /* drawSpace.h */,
 			);
@@ -497,7 +495,6 @@
 		F576B5FB1563CDA2005C50F2 = {
 			isa = PBXGroup;
 			children = (
-				F519CE8E156559E50076E1F6 /* background.png */,
 				F576B61A1563CDA2005C50F2 /* BallBlock */,
 				F576B6091563CDA2005C50F2 /* Frameworks */,
 				F576B6071563CDA2005C50F2 /* Products */,
@@ -530,13 +527,9 @@
 		F576B61A1563CDA2005C50F2 /* BallBlock */ = {
 			isa = PBXGroup;
 			children = (
-				F563443C1565333D0026E397 /* MenuLayer.h */,
-				F563443D1565333D0026E397 /* MenuLayer.m */,
-				F5634433156522950026E397 /* Ball.h */,
-				F5634434156522950026E397 /* Ball.m */,
+				F58E9C49156674D100DBA335 /* GameObjects */,
+				F58E9C481566748000DBA335 /* Layers */,
 				F571000115640A6200B8CF76 /* Helper Code */,
-				F576B7D91563CDC8005C50F2 /* GameLayer.h */,
-				F576B7DA1563CDC8005C50F2 /* GameLayer.m */,
 				F576B7C81563CDA5005C50F2 /* AppDelegate.h */,
 				F576B7C91563CDA5005C50F2 /* AppDelegate.m */,
 				F576B7CB1563CDA5005C50F2 /* RootViewController.h */,
@@ -552,6 +545,7 @@
 		F576B61B1563CDA2005C50F2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F519CE8E156559E50076E1F6 /* background.png */,
 				F576B61C1563CDA2005C50F2 /* Default.png */,
 				F576B61E1563CDA2005C50F2 /* fps_images.png */,
 				F576B6201563CDA2005C50F2 /* Icon-72.png */,
@@ -986,6 +980,28 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		F58E9C481566748000DBA335 /* Layers */ = {
+			isa = PBXGroup;
+			children = (
+				F576B7D91563CDC8005C50F2 /* GameLayer.h */,
+				F576B7DA1563CDC8005C50F2 /* GameLayer.m */,
+				F563443C1565333D0026E397 /* MenuLayer.h */,
+				F563443D1565333D0026E397 /* MenuLayer.m */,
+			);
+			name = Layers;
+			sourceTree = "<group>";
+		};
+		F58E9C49156674D100DBA335 /* GameObjects */ = {
+			isa = PBXGroup;
+			children = (
+				F5634433156522950026E397 /* Ball.h */,
+				F5634434156522950026E397 /* Ball.m */,
+				F58E9C4A1566750E00DBA335 /* Wall.h */,
+				F58E9C4B1566750E00DBA335 /* Wall.m */,
+			);
+			name = GameObjects;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1181,10 +1197,10 @@
 				F576B7CA1563CDA5005C50F2 /* AppDelegate.m in Sources */,
 				F576B7CD1563CDA5005C50F2 /* RootViewController.m in Sources */,
 				F576B7DB1563CDC8005C50F2 /* GameLayer.m in Sources */,
-				F571000615640A6200B8CF76 /* cpMouse.c in Sources */,
 				F571000715640A6200B8CF76 /* drawSpace.c in Sources */,
 				F5634435156522950026E397 /* Ball.m in Sources */,
 				F563443E1565333E0026E397 /* MenuLayer.m in Sources */,
+				F58E9C4C1566750E00DBA335 /* Wall.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

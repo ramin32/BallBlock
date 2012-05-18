@@ -12,13 +12,9 @@
 @interface Ball : NSObject{
     cpBody *_body;
     cpShape *_shape;
-    CGSize _bounds;
 }
 
-- (id)initWithBounds: (CGSize) bounds;
-
 - (void) addToSpace: (cpSpace *) space;
-
-- (void) update;
++ (Ball *) initAndAddToSpace: (cpSpace *) space;
 
 @end

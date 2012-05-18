@@ -21,19 +21,22 @@ cpVect randcpv(int xrange, int yrange)
 
 @implementation Ball
 
-- (id)initWithBounds: (CGSize) bounds
+- (id)init
 {
     if (self = [super init]) 
     {
         
-        _bounds = bounds; 
+        // Body
         float mass = 10;
+        _body = cpBodyNew(mass, INFINITY);     
+        
+        // Set position and cap velocity
+        CGSize winSize = [CCDirector sharedDirector].winSize;
+        _body->p = cpv(winSize.width/2, winSize.height/2);   
+ 		cpBodySetVelLimit(_body,200);
+        
+        // Setup shape
         float r = 5;
-        _body = cpBodyNew(mass, INFINITY);      
-        _body->p = cpv(arc4random() % (int)bounds.width, arc4random() % (int)bounds.height);   
- 		cpBodySetVelLimit(_body,100);
-        
-        
         _shape = cpCircleShapeNew(_body, r, cpvzero);  
         _shape->e = 1.5;      
         _shape->u = 0; 
@@ -52,9 +55,11 @@ cpVect randcpv(int xrange, int yrange)
     cpSpaceAddShape(space, _shape);  
 }
 
-- (void) update
++ (Ball *) initAndAddToSpace: (cpSpace *) space
 {
-       
+    Ball *b = [[Ball alloc] init];
+    [b addToSpace:space];
+    return b;
 }
 
 - (void) dealloc
