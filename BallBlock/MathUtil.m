@@ -7,24 +7,60 @@
 //
 
 #import "MathUtil.h"
-
+#import "cocos2d.h"
 
 float slope(CGPoint p1, CGPoint p2)
 {
     return (p2.y - p1.y) / (p2.x - p1.x);
 }
 
-float xPointForPoints(CGPoint p1, CGPoint p2, float y)
+float xPointForPoint(CGPoint p, float m, float y)
 {
-    float m = slope(p1, p2);
-    return (y - p1.y)/m + p1.x;
+    return (y - p.y)/m + p.x;
 }
 
-float yPointForPoints(CGPoint p1, CGPoint p2, float x)
+float yPointForPoint(CGPoint p, float m, float x)
 {
-    float m = slope(p1, p2);
-    return m*(x - p1.x) + p1.y;
+    return m*(x - p.x) + p.y;
 }
 
+BOOL between(int x, int min, int max)
+{
+    return x >= min && x <= max;
+}
+
+NSArray *borderPointsForPoints(CGPoint p1, CGPoint p2)
+{
+    CGSize winSize = [CCDirector sharedDirector].winSize;
+    float m = slope(p1, p2);
+    
+    CGPoint newP1,newP2;
+    float xAtYZero = xPointForPoint(p1, m, 0);
+    if (between(xAtYZero, 0, winSize.width)) 
+    {
+        newP1 = CGPointMake(xAtYZero, 0);
+    }
+    else
+    {
+        float xAtYHeight = xPointForPoint(p1, m, winSize.height);
+        newP1 = CGPointMake(xAtYHeight, winSize.height);
+    }
+    
+    float yAtXZero = yPointForPoint(p1, m, 0);
+    if (between(yAtXZero, 0, winSize.height))
+    {
+        newP2 = CGPointMake(0, yAtXZero);
+    }
+    else
+    {
+        float yAtXWidth = yPointForPoint(p1, m, winSize.width);
+        newP2 = CGPointMake(winSize.width, yAtXWidth);
+    }
+    
+
+    return [NSArray arrayWithObjects: [NSValue valueWithCGPoint:newP1],
+                                                         [NSValue valueWithCGPoint:newP2],
+                                                         nil];
+}
 
 

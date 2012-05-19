@@ -6,7 +6,6 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+NSArray *borderPointsForPoints(CGPoint p1, CGPoint p2);
     
-float slope(CGPoint p1, CGPoint p2);
-float point(CGPoint p1, CGPoint p2);
+

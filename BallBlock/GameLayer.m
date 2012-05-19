@@ -3,6 +3,7 @@
 #import <UIKit/UIKit.h>
 #import "Wall.h"
 #import "MenuLayer.h"
+#import "MathUtil.h"
 
 
 @implementation GameLayer
@@ -97,27 +98,27 @@
     _firstTouch = location;
 }
 
-- (void) ccTouchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
-{
-    NSSet *allTouches = [event allTouches];
-    UITouch * touch = [[allTouches allObjects] objectAtIndex:0];
-    CGPoint location = [touch locationInView: [touch view]];
-    location = [[CCDirector sharedDirector] convertToGL:location];
-    
-    //Swipe Detection Part 2
-    _lastTouch = location;
-    
-    //Minimum length of the swipe
-    float swipeLength = ccpDistance(_firstTouch, _lastTouch);
-    
-    //Check if the swipe is a left swipe and long enough
-    // if (_firstTouch.x > _lastTouch.x && swipeLength > 60) {
-    //if(    swipeLength > 60) 
-    [_walls addObject: [Wall initAndAddToSpace:_space from:_firstTouch to:_lastTouch]];
-    //}
-    _firstTouch = _lastTouch;
-
-}
+//- (void) ccTouchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
+//{
+//    NSSet *allTouches = [event allTouches];
+//    UITouch * touch = [[allTouches allObjects] objectAtIndex:0];
+//    CGPoint location = [touch locationInView: [touch view]];
+//    location = [[CCDirector sharedDirector] convertToGL:location];
+//    
+//    //Swipe Detection Part 2
+//    _lastTouch = location;
+//    
+//    //Minimum length of the swipe
+//    float swipeLength = ccpDistance(_firstTouch, _lastTouch);
+//    
+//    //Check if the swipe is a left swipe and long enough
+//    // if (_firstTouch.x > _lastTouch.x && swipeLength > 60) {
+//    //if(    swipeLength > 60) 
+//    [_walls addObject: [Wall initAndAddToSpace:_space from:_firstTouch to:_lastTouch]];
+//    //}
+//    _firstTouch = _lastTouch;
+//
+//}
 
 - (void) ccTouchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
     NSSet *allTouches = [event allTouches];
@@ -131,11 +132,10 @@
     //Minimum length of the swipe
     float swipeLength = ccpDistance(_firstTouch, _lastTouch);
     
-    //Check if the swipe is a left swipe and long enough
-   // if (_firstTouch.x > _lastTouch.x && swipeLength > 60) {
-//if(    swipeLength > 60) 
-    [_walls addObject: [Wall initAndAddToSpace:_space from:_firstTouch to:_lastTouch]];
-    //}
+    NSArray *linePoints = borderPointsForPoints(_firstTouch, _lastTouch);
+    CGPoint p1 = [[linePoints objectAtIndex:0] CGPointValue];
+    CGPoint p2 = [[linePoints objectAtIndex:1] CGPointValue];
+    [_walls addObject: [Wall initAndAddToSpace:_space from: p1 to:p2]];
 }
 
 
