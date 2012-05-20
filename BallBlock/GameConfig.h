@@ -41,5 +41,13 @@
 #error(unknown architecture)
 #endif
 
+#define WALL_FRICTION .5
+#define WALL_RADIUS 5
+
+#define BALL_FRICTION .5
+#define BALL_COUNT 20
+#define BALL_RADIUS 10
+#define BALL_VELOCITY_LIMIT 150
+
 #endif // __GAME_CONFIG_H
 

@@ -8,6 +8,7 @@
 
 #import "Wall.h"
 #import "cocos2d.h"
+#import "GameConfig.h"
 
 @implementation Wall
 
@@ -17,10 +18,10 @@
     {     
         _body = cpBodyNewStatic();
         
-        float radius = 5.0;
+        float radius = WALL_RADIUS;
         _shape = cpSegmentShapeNew(_body, from, to, radius);    
         _shape->e = .7;
-        _shape->u = 0;
+        _shape->u =  WALL_FRICTION;
     }
     return self;
 }

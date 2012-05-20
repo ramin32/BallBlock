@@ -165,8 +165,8 @@
 		F563443D1565333D0026E397 /* MenuLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuLayer.m; sourceTree = "<group>"; };
 		F563B60E1566F8D10067FB1C /* MathUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MathUtil.m; sourceTree = "<group>"; };
 		F563B6111566F8F30067FB1C /* MathUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MathUtil.h; sourceTree = "<group>"; };
-		F571000415640A6200B8CF76 /* drawSpace.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.objc; fileEncoding = 4; path = drawSpace.c; sourceTree = "<group>"; };
-		F571000515640A6200B8CF76 /* drawSpace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = drawSpace.h; sourceTree = "<group>"; };
+		F571000415640A6200B8CF76 /* drawSpace.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.objc; fileEncoding = 4; name = drawSpace.c; path = "Helper Code/drawSpace.c"; sourceTree = "<group>"; };
+		F571000515640A6200B8CF76 /* drawSpace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = drawSpace.h; path = "Helper Code/drawSpace.h"; sourceTree = "<group>"; };
 		F576B6061563CDA2005C50F2 /* BallBlock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BallBlock.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F576B60A1563CDA2005C50F2 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		F576B60C1563CDA2005C50F2 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -486,22 +486,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		F563B6121566F9800067FB1C /* Util */ = {
+		F555F3061569726000E1F197 /* App */ = {
 			isa = PBXGroup;
 			children = (
-				F563B6111566F8F30067FB1C /* MathUtil.h */,
-				F563B60E1566F8D10067FB1C /* MathUtil.m */,
+				F576B7C81563CDA5005C50F2 /* AppDelegate.h */,
+				F576B7C91563CDA5005C50F2 /* AppDelegate.m */,
+				F576B7CB1563CDA5005C50F2 /* RootViewController.h */,
+				F576B7CC1563CDA5005C50F2 /* RootViewController.m */,
+				F576B7D11563CDA5005C50F2 /* GameConfig.h */,
 			);
-			name = Util;
+			name = App;
 			sourceTree = "<group>";
 		};
-		F571000115640A6200B8CF76 /* Helper Code */ = {
+		F563B6121566F9800067FB1C /* Util */ = {
 			isa = PBXGroup;
 			children = (
 				F571000415640A6200B8CF76 /* drawSpace.c */,
 				F571000515640A6200B8CF76 /* drawSpace.h */,
+				F563B6111566F8F30067FB1C /* MathUtil.h */,
+				F563B60E1566F8D10067FB1C /* MathUtil.m */,
 			);
-			path = "Helper Code";
+			name = Util;
 			sourceTree = "<group>";
 		};
 		F576B5FB1563CDA2005C50F2 = {
@@ -539,15 +544,10 @@
 		F576B61A1563CDA2005C50F2 /* BallBlock */ = {
 			isa = PBXGroup;
 			children = (
+				F555F3061569726000E1F197 /* App */,
 				F563B6121566F9800067FB1C /* Util */,
 				F58E9C49156674D100DBA335 /* GameObjects */,
 				F58E9C481566748000DBA335 /* Layers */,
-				F571000115640A6200B8CF76 /* Helper Code */,
-				F576B7C81563CDA5005C50F2 /* AppDelegate.h */,
-				F576B7C91563CDA5005C50F2 /* AppDelegate.m */,
-				F576B7CB1563CDA5005C50F2 /* RootViewController.h */,
-				F576B7CC1563CDA5005C50F2 /* RootViewController.m */,
-				F576B7D11563CDA5005C50F2 /* GameConfig.h */,
 				F576B61B1563CDA2005C50F2 /* Resources */,
 				F576B62F1563CDA2005C50F2 /* libs */,
 				F576B7C41563CDA5005C50F2 /* Supporting Files */,

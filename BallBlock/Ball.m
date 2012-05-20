@@ -8,6 +8,7 @@
 
 #import "Ball.h"
 #import "cocos2d.h"
+#import "GameConfig.h"
 
 int randVal(int range)
 {
@@ -28,18 +29,18 @@ cpVect randcpv(int xrange, int yrange)
         
         // Body
         float mass = 10;
-        float r = 5;
+        float r = BALL_RADIUS;
         _body = cpBodyNew(mass, cpMomentForCircle(mass, 0, r, cpvzero));     
         
         // Set position and cap velocity
         CGSize winSize = [CCDirector sharedDirector].winSize;
         _body->p = cpv(winSize.width/2, winSize.height/2);   
- 		cpBodySetVelLimit(_body,200);
+ 		cpBodySetVelLimit(_body, BALL_VELOCITY_LIMIT);
         
         // Setup shape
         _shape = cpCircleShapeNew(_body, r, cpvzero);  
         _shape->e = 1.5;      
-        _shape->u = 0; 
+        _shape->u = BALL_FRICTION; 
         _shape->collision_type = 1;  
         
         // Apply initial force
