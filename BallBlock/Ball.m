@@ -28,7 +28,8 @@ cpVect randcpv(int xrange, int yrange)
         
         // Body
         float mass = 10;
-        _body = cpBodyNew(mass, INFINITY);     
+        float r = 5;
+        _body = cpBodyNew(mass, cpMomentForCircle(mass, 0, r, cpvzero));     
         
         // Set position and cap velocity
         CGSize winSize = [CCDirector sharedDirector].winSize;
@@ -36,7 +37,6 @@ cpVect randcpv(int xrange, int yrange)
  		cpBodySetVelLimit(_body,200);
         
         // Setup shape
-        float r = 5;
         _shape = cpCircleShapeNew(_body, r, cpvzero);  
         _shape->e = 1.5;      
         _shape->u = 0; 

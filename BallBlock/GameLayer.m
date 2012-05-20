@@ -132,10 +132,11 @@
     //Minimum length of the swipe
     float swipeLength = ccpDistance(_firstTouch, _lastTouch);
     
-    NSArray *linePoints = borderPointsForPoints(_firstTouch, _lastTouch);
-    CGPoint p1 = [[linePoints objectAtIndex:0] CGPointValue];
-    CGPoint p2 = [[linePoints objectAtIndex:1] CGPointValue];
-    [_walls addObject: [Wall initAndAddToSpace:_space from: p1 to:p2]];
+//    NSArray *linePoints = borderPointsForPoints(_firstTouch, _lastTouch);
+//    NSLog(@"%@", linePoints);
+//    CGPoint p1 = [[linePoints objectAtIndex:0] CGPointValue];
+//    CGPoint p2 = [[linePoints objectAtIndex:1] CGPointValue];
+    [_walls addObject: [Wall initAndAddToSpace:_space from: _lastTouch to:_firstTouch]];
 }
 
 
