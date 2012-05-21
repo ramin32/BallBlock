@@ -18,6 +18,7 @@
 - (id) initFrom:(CGPoint)from to:(CGPoint)to;
 - (void) addToSpace: (cpSpace *) space;
 + (Wall *) initAndAddToSpace:(cpSpace *)space from:(CGPoint)from to:(CGPoint)to;
++ (Wall *) initAndAddToSpace:(cpSpace *)space fromValue:(NSValue *) fromValue toValue:(NSValue *) toValue;
 + (NSArray *) initFrameForSpace: (cpSpace *) space;
 
 @end

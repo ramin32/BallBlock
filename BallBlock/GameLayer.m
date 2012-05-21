@@ -26,8 +26,6 @@
 }
 
 
-
-
 - (void)draw 
 {
     drawSpaceOptions options = {
@@ -48,6 +46,7 @@
 {
     cpSpaceStep(_space, dt);
 }
+
 
 - (void) setupPauseButton
 {
@@ -70,8 +69,7 @@
     if ((self = [super init])) {                
         _walls = [[NSMutableArray alloc] init];
         _balls = [[NSMutableArray alloc] init];
-        _ballCount = BALL_COUNT;
-        
+        _ballCount = BALL_COUNT;        
   
         
         [self initSpace];
@@ -94,24 +92,25 @@
     NSSet *allTouches = [event allTouches];
     UITouch * touch = [[allTouches allObjects] objectAtIndex:0];
     CGPoint location = [touch locationInView: [touch view]];
-    _firstTouch = [[CCDirector sharedDirector] convertToGL:location];
-}
+    _firstTouch  = [[CCDirector sharedDirector] convertToGL:location];
 
-- (void) ccTouchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
-{
-    NSSet *allTouches = [event allTouches];
-    UITouch * touch = [[allTouches allObjects] objectAtIndex:0];
-    CGPoint location = [touch locationInView: [touch view]];
-    _lastTouch = [[CCDirector sharedDirector] convertToGL:location];
-    
-    [_walls addObject: [Wall initAndAddToSpace:_space from:_firstTouch to:_lastTouch]];
-    _firstTouch = _lastTouch;
 }
 
 - (void) ccTouchesEnded:(NSSet *)touches withEvent:(UIEvent *)event 
-{
-        
-
+{        
+    
+    NSSet *allTouches = [event allTouches];
+    UITouch * touch = [[allTouches allObjects] objectAtIndex:0];
+    CGPoint location = [touch locationInView: [touch view]];
+    _lastTouch  = [[CCDirector sharedDirector] convertToGL:location];
+    NSArray *points = borderPointsForPoints(_firstTouch, _lastTouch);
+    NSLog(@"0:%@", [points objectAtIndex:0] );
+    
+    NSLog(@"1:%@", [points objectAtIndex:1] );
+    //[Wall initAndAddToSpace:_space from: _firstTouch to: _lastTouch];
+    [Wall initAndAddToSpace: _space 
+                          fromValue: [points objectAtIndex:0] 
+                              toValue: [points objectAtIndex:1]];
     
 }
 

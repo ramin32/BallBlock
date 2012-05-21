@@ -18,7 +18,7 @@
     {     
         _body = cpBodyNewStatic();
         
-        float radius = WALL_RADIUS;
+        float radius = 5.0;
         _shape = cpSegmentShapeNew(_body, from, to, radius);    
         _shape->e = .7;
         _shape->u =  WALL_FRICTION;
@@ -36,6 +36,13 @@
     Wall *wall = [[Wall alloc] initFrom:from to:to];
     [wall addToSpace:space];
     return wall;
+}
+
++ (Wall *) initAndAddToSpace:(cpSpace *)space fromValue:(NSValue *) fromValue toValue:(NSValue *) toValue
+{
+    CGPoint from = [fromValue CGPointValue];
+    CGPoint to = [toValue CGPointValue];
+    return [Wall initAndAddToSpace:space from:from to:to];
 }
 
 + (NSArray *) initFrameForSpace: (cpSpace *) space

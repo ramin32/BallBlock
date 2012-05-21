@@ -9,9 +9,9 @@
     NSMutableArray *_balls;
     int _ballCount;
     
+    //NSMutableSet * _touches;
     CGPoint _firstTouch;
-    CGPoint _lastTouch;    
-
+    CGPoint _lastTouch;
 }
 
 + (id)scene;
