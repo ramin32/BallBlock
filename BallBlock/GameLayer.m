@@ -6,6 +6,7 @@
 #import "MathUtil.h"
 #import "GameConfig.h"
 
+typedef enum region {TOP=0, BOTTOM=1} region;
 
 @implementation GameLayer
 
@@ -96,6 +97,27 @@
 
 }
 
+- (void) fillRegion:(region) region
+{
+    float height = [CCDirector sharedDirector].winSize.height;
+    CGPoint minPoint = minXPoint(_firstTouch, _lastTouch);
+    CGPoint maxPoint = maxXPoint(_firstTouch, _lastTouch);
+    cpBody *body = cpBodyNewStatic();
+    cpVect verts[4];
+    if (region == TOP)
+    {
+        fillArray(verts, 4, minPoint, maxPoint, cpv(maxPoint.x, 0), cpv(minPoint.x, 0));
+    }
+    else
+    {
+        fillArray(verts, 4, cpv(minPoint.x, height), cpv(maxPoint.x, height), maxPoint, minPoint);
+    }
+    
+    cpShape *shape = cpPolyShapeNew(body, 4, verts, cpvzero);
+    cpSpaceAddShape(_space, shape);
+}
+
+
 - (void) ccTouchesEnded:(NSSet *)touches withEvent:(UIEvent *)event 
 {        
     
@@ -108,12 +130,14 @@
     
     NSLog(@"1:%@", [points objectAtIndex:1] );
     //[Wall initAndAddToSpace:_space from: _firstTouch to: _lastTouch];
-    [Wall initAndAddToSpace: _space 
-                          fromValue: [points objectAtIndex:0] 
-                              toValue: [points objectAtIndex:1]];
+//    [Wall initAndAddToSpace: _space 
+//                          fromValue: [points objectAtIndex:0] 
+//                              toValue: [points objectAtIndex:1]];
+    
+    
+    [self fillRegion: arc4random() % 2];
     
 }
-
 
 
 - (void)dealloc {

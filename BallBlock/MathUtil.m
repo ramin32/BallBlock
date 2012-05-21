@@ -47,3 +47,31 @@ NSArray *borderPointsForPoints(CGPoint p1, CGPoint p2)
     return [points filteredArrayUsingPredicate:inWindowPredicate];
 }
 
+CGPoint minXPoint(CGPoint p1, CGPoint p2)
+{
+    if (p1.x < p2.x) {
+        return p1;
+    }
+    return p2;
+}
+
+CGPoint maxXPoint(CGPoint p1, CGPoint p2)
+{
+    if (p1.x > p2.x) {
+        return p1;
+    }
+    return p2;
+}
+
+void fillArray(CGPoint *arr, int numPoints, ...)
+{
+    va_list args;
+    va_start(args, numPoints);
+    for (int i = 0; i < numPoints; i++) 
+    {
+        arr[i] = va_arg(args, CGPoint);
+    }
+    va_end(args);
+}
+
+
